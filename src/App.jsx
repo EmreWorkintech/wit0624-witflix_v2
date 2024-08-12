@@ -6,13 +6,21 @@ import {
 import Login from "./pages/Login";
 import Welcome from "./pages/Welcome";
 import Browse from "./pages/Browse";
+import { useState } from "react";
 
 function App() {
+  const [user] = useState({
+    name: "Emre",
+    id: 1,
+    avatar:
+      "https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg",
+  });
+
   return (
     <>
       <Switch>
         <Route exact path="/">
-          <Redirect to="/login" />
+          {user ? <Redirect to="/welcome" /> : <Redirect to="/login" />}
         </Route>
         <Route path="/login">
           <Login />
