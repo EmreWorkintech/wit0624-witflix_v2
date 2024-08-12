@@ -15,6 +15,7 @@ function App() {
     avatar:
       "https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg",
   });
+  const [activeProfile, setActiveProfile] = useState(null);
 
   return (
     <>
@@ -26,10 +27,10 @@ function App() {
           <Login />
         </Route>
         <Route path="/welcome">
-          <Welcome />
+          <Welcome setActiveProfile={setActiveProfile} />
         </Route>
         <Route path="/browse">
-          <Browse />
+          <Browse user={user} activeProfile={activeProfile} />
         </Route>
       </Switch>
     </>
