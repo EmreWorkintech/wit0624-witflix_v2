@@ -15,17 +15,16 @@ Sprint 5-6-7: Neler öğrendik?
   [ ] appendChild
 [ ] Event listeners
   [ ] event handler functions
+[ ] HTML'e JS ekleme yöntemleri
 
-
-[ ] HTML form & form elements
-[ ] axios
+[+] HTML form & form elements
+[+] axios
 [+] components
   [+] Döngüleri kullanma
-[ ] HTML'e JS ekleme yöntemleri
-  [+] React
+[+] React
 [ ] hook'lar
   [+] useState
-  [ ] useEffect
+  [+] useEffect
     [+] React Router @5
     [+] useHistory
   [ ] useParams
@@ -34,17 +33,17 @@ Sprint 5-6-7: Neler öğrendik?
 [ ] import&export
   [+] default
   [ ] named
-[ ] React ile Form yönetimi
-  [ ] controlled input
-  [ ] checkbox, radio button, select
-  [ ] form validasyonu
+[+] React ile Form yönetimi
+  [+] controlled input
+  [+] checkbox, radio button, select
+  [+] form validasyonu
 [ ] testler
   [ ] cypress
   [ ] E2E testleri
-[ ] harice kütüphaneler ile çalışma
+[+] harice kütüphaneler ile çalışma
   [+] styled-components
-  [ ] reactstrap
-    [+] vite framwork'ü ile sıfırdan react projesi oluşturma
+  [+] reactstrap
+[+] vite framwork'ü ile sıfırdan react projesi oluşturma
 
 
 ## REACT FORM YÖNETİMİ
