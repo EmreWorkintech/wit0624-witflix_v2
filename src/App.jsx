@@ -9,12 +9,7 @@ import Browse from "./pages/Browse";
 import { useState } from "react";
 
 function App() {
-  const [user] = useState({
-    name: "Emre",
-    id: 1,
-    avatar:
-      "https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg",
-  });
+  const [user, setUser] = useState();
   const [activeProfile, setActiveProfile] = useState(null);
 
   return (
@@ -24,13 +19,21 @@ function App() {
           {user ? <Redirect to="/welcome" /> : <Redirect to="/login" />}
         </Route>
         <Route path="/login">
-          <Login />
+          <Login setUser={setUser} />
         </Route>
         <Route path="/welcome">
-          <Welcome setActiveProfile={setActiveProfile} />
+          {user ? (
+            <Welcome setActiveProfile={setActiveProfile} />
+          ) : (
+            <Redirect to="/login" />
+          )}
         </Route>
         <Route path="/browse">
-          <Browse user={user} activeProfile={activeProfile} />
+          {user ? (
+            <Browse user={user} activeProfile={activeProfile} />
+          ) : (
+            <Redirect to="/login" />
+          )}
         </Route>
       </Switch>
     </>
