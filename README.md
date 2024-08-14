@@ -30,9 +30,9 @@ Sprint 5-6-7: Neler öğrendik?
   [ ] useParams
     [+] Switch, BrowserRouter, Route, Link, NavLink, Redirect
     [+] Functional Component
-[ ] import&export
+[+] import&export
   [+] default
-  [ ] named
+  [+] named
 [+] React ile Form yönetimi
   [+] controlled input
   [+] checkbox, radio button, select

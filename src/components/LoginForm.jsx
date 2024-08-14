@@ -11,6 +11,11 @@ import {
   Label,
 } from "reactstrap";
 import styled from "styled-components";
+import {
+  errorMessages,
+  validateEmail,
+  validatePassword,
+} from "../utils/helpers";
 
 const LoginFormArea = styled(Form)`
   width: 30%;
@@ -42,9 +47,7 @@ function LoginForm(props) {
   useEffect(() => {
     if (
       validateEmail(formData.email) &&
-      formData.password.trim().length >= 8 &&
-      formData.password.toLowerCase() !== formData.password &&
-      formData.password.toUpperCase() !== formData.password &&
+      validatePassword(formData.password) &&
       formData.terms
     ) {
       setIsValid(true);
@@ -62,21 +65,16 @@ function LoginForm(props) {
       if (validateEmail(value)) {
         setErrors({ ...errors, email: "" });
       } else {
-        setErrors({ ...errors, email: "Geçerli bir email giriniz!.." });
+        setErrors({ ...errors, email: errorMessages.email });
       }
     }
     if (name === "password") {
-      if (
-        value.trim().length >= 8 &&
-        value.toLowerCase() !== value &&
-        value.toUpperCase() !== value
-      ) {
+      if (validatePassword(value)) {
         setErrors({ ...errors, password: "" });
       } else {
         setErrors({
           ...errors,
-          password:
-            "Password'ünüz en az 8 karakter olmalı, en az 1 büyük harf ve 1 küçük harf içermeli.",
+          password: errorMessages.password,
         });
       }
     }
@@ -86,8 +84,7 @@ function LoginForm(props) {
       } else {
         setErrors({
           ...errors,
-          terms:
-            "Kayıt olabilmek için anlaşma şartlarını kabul etmelisiniz!...",
+          terms: errorMessages.terms,
         });
       }
     }
@@ -106,14 +103,6 @@ function LoginForm(props) {
       .catch((error) => {
         console.log(error.message);
       });
-  };
-
-  const validateEmail = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
   };
 
   //template
