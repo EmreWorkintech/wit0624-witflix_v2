@@ -24,9 +24,9 @@ const LoginFormArea = styled(Form)`
 `;
 
 const initialFormValues = {
-  email: "emre@wit.com.tr",
-  password: "1234RThj",
-  terms: true,
+  email: "",
+  password: "",
+  terms: false,
   name: "Emre",
   id: 1,
   avatar:
@@ -119,6 +119,7 @@ function LoginForm(props) {
           <Input
             id="email"
             name="email"
+            data-cy="email-input"
             placeholder="Email"
             type="email"
             value={formData.email}
@@ -126,12 +127,15 @@ function LoginForm(props) {
             invalid={errors.email !== ""}
           />
           <Label for="email">Email</Label>
-          <FormFeedback tooltip>{errors.email}</FormFeedback>
+          <FormFeedback tooltip data-cy="error">
+            {errors.email}
+          </FormFeedback>
         </FormGroup>{" "}
         <FormGroup floating>
           <Input
             id="password"
             name="password"
+            data-cy="password-input"
             placeholder="Password"
             type="password"
             value={formData.password}
@@ -139,12 +143,15 @@ function LoginForm(props) {
             invalid={errors.password !== ""}
           />
           <Label for="password">Password</Label>
-          <FormFeedback tooltip>{errors.password}</FormFeedback>
+          <FormFeedback tooltip data-cy="error">
+            {errors.password}
+          </FormFeedback>
         </FormGroup>{" "}
         <FormGroup floating>
           <Input
             type="checkbox"
             name="terms"
+            data-cy="terms-input"
             checked={formData.terms}
             onChange={handleChange}
             invalid={errors.terms !== ""}
@@ -154,7 +161,11 @@ function LoginForm(props) {
           </Label>
           <FormFeedback tooltip>{errors.terms}</FormFeedback>
         </FormGroup>
-        <Button disabled={!isValid} className="w-100 btn-danger">
+        <Button
+          disabled={!isValid}
+          data-cy="submit-button"
+          className="w-100 btn-danger"
+        >
           Submit
         </Button>
       </LoginFormArea>
