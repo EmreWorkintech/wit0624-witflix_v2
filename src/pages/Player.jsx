@@ -12,8 +12,6 @@ function Player() {
   const [movie, setMovie] = useState();
   const { id } = useParams();
 
-  console.log(movie);
-
   useEffect(() => {
     axios
       .get("https://reqres.in/api/users/" + id)
