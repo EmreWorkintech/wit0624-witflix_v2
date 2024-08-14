@@ -22,12 +22,12 @@ Sprint 5-6-7: Neler öğrendik?
 [+] components
   [+] Döngüleri kullanma
 [+] React
-[ ] hook'lar
+[+] hook'lar
   [+] useState
   [+] useEffect
     [+] React Router @5
     [+] useHistory
-  [ ] useParams
+  [+] useParams
     [+] Switch, BrowserRouter, Route, Link, NavLink, Redirect
     [+] Functional Component
 [+] import&export

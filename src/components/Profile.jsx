@@ -25,7 +25,7 @@ function Profile(props) {
 
   const handleClick = () => {
     setActiveProfile(profile);
-    history.push("/browse");
+    history.push("/player/5");
   };
   return (
     <Card onClick={handleClick}>

@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Welcome from "./pages/Welcome";
 import Browse from "./pages/Browse";
 import { useState } from "react";
+import Player from "./pages/Player";
 
 function App() {
   const [user, setUser] = useState();
@@ -34,6 +35,9 @@ function App() {
           ) : (
             <Redirect to="/login" />
           )}
+        </Route>
+        <Route path="/player/:id">
+          {user ? <Player /> : <Redirect to="/login" />}
         </Route>
       </Switch>
     </>
