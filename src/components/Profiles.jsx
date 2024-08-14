@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import Profile from "./Profile";
 import styled from "styled-components";
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -9,29 +11,19 @@ const Container = styled.div`
 
 function Profiles(props) {
   const { setActiveProfile } = props;
+  const [profiles, setProfiles] = useState([]);
 
-  const profiles = [
-    {
-      title: "Emre",
-      avatar:
-        "https://as1.ftcdn.net/v2/jpg/05/90/59/88/1000_F_590598870_TOcGd4cUZzPoEMlxSc7XYwcupHOE0vLM.jpg",
-    },
-    {
-      title: "Gözde",
-      avatar:
-        "https://as1.ftcdn.net/v2/jpg/05/90/59/88/1000_F_590598870_TOcGd4cUZzPoEMlxSc7XYwcupHOE0vLM.jpg",
-    },
-    {
-      title: "Duru",
-      avatar:
-        "https://as1.ftcdn.net/v2/jpg/05/90/59/88/1000_F_590598870_TOcGd4cUZzPoEMlxSc7XYwcupHOE0vLM.jpg",
-    },
-    {
-      title: "Türkan",
-      avatar:
-        "https://as1.ftcdn.net/v2/jpg/05/90/59/88/1000_F_590598870_TOcGd4cUZzPoEMlxSc7XYwcupHOE0vLM.jpg",
-    },
-  ];
+  useEffect(() => {
+    axios
+      .get("https://reqres.in/api/users")
+      .then((response) => {
+        setProfiles(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
+
   return (
     <Container>
       {profiles.map((item, index) => (

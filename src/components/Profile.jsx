@@ -30,7 +30,7 @@ function Profile(props) {
   return (
     <Card onClick={handleClick}>
       <Avatar src={profile.avatar} />
-      <Title>{profile.title}</Title>
+      <Title>{profile.first_name}</Title>
     </Card>
   );
 }

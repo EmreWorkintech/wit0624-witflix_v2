@@ -37,9 +37,9 @@ Sprint 5-6-7: Neler öğrendik?
   [+] controlled input
   [+] checkbox, radio button, select
   [+] form validasyonu
-[ ] testler
-  [ ] cypress
-  [ ] E2E testleri
+[+] testler
+  [+] cypress
+  [+] E2E testleri
 [+] harice kütüphaneler ile çalışma
   [+] styled-components
   [+] reactstrap
